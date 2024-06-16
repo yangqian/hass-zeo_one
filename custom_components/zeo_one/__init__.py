@@ -7,7 +7,7 @@ from datetime import timedelta
 import async_timeout
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_EMAIL, CONF_PASSWORD
+from homeassistant.const import CONF_EMAIL, CONF_PASSWORD, CONF_COUNTRY_CODE
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
@@ -26,10 +26,11 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     """Set up Zeo One from a config entry."""
 
     email = config_entry.data[CONF_EMAIL]
+    country = config_entry.data[CONF_COUNTRY_CODE]
     password = config_entry.data[CONF_PASSWORD]
 
     session = async_get_clientsession(hass)
-    api = RoborockApiClient(email)
+    api = RoborockApiClient(email,f"https://{country}iot.roborock.com")
     ud = await api.pass_login(password)
     hd = await api.get_home_data_v2(ud)
     devlist = [i for i in hd.devices if i.name=='H1']
