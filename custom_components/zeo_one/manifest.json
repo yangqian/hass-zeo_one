@@ -1,9 +1,9 @@
 {
   "domain": "zeo_one",
   "name": "Zeo One",
-  "documentation": "https://github.com/yangqian/home-assistant-zeo-one",
-  "issue_tracker": "https://github.com/yangqian/home-assistant-zeo-one/issues",
-  "version": "1.0.0",
+  "documentation": "https://github.com/yangqian/hass-zeo_one",
+  "issue_tracker": "https://github.com/yangqian/hass-zeo_one/issues",
+  "version": "1.1.0",
   "codeowners": ["@yangqian"],
   "config_flow": true,
   "requirements": [
