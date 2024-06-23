@@ -1,6 +1,7 @@
 {
   "config": {
     "step": {
+      "title": "Roborock Zeo One",
       "user": {
         "data": {
           "country_code": "Country Code",

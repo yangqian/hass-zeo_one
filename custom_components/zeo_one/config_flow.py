@@ -6,16 +6,17 @@ from typing import Any
 
 import voluptuous as vol
 from homeassistant import config_entries
-from homeassistant.const import CONF_EMAIL, CONF_PASSWORD, COUNTRY_CODE
+from homeassistant.const import CONF_EMAIL, CONF_PASSWORD, CONF_COUNTRY_CODE
 from homeassistant.data_entry_flow import FlowResult
 from .const import *
+from homeassistant.helpers import config_validation as cv
 
 _LOGGER = logging.getLogger(__name__)
 
 STEP_DATA_SCHEMA = vol.Schema({
-    vol.Required(COUNTRY_CODE): str,
-    vol.Required(CONF_EMAIL): str,
-    vol.Required(CONF_PASSWORD): str,
+    vol.Required(CONF_COUNTRY_CODE): cv.string,
+    vol.Required(CONF_EMAIL): cv.string,
+    vol.Required(CONF_PASSWORD): cv.string,
 })
 
 
