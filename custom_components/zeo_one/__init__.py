@@ -33,7 +33,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     api = RoborockApiClient(email,f"https://{country}iot.roborock.com")
     ud = await api.pass_login(password)
     hd = await api.get_home_data_v2(ud)
-    devlist = [i for i in hd.devices if i.name=='H1']
+    devlist = [i for i in hd.devices if i.name=='H1'or i.name=='H1 Neo']
     device = devlist[0]
     model = None
     cat = None
