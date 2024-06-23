@@ -38,7 +38,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     model = None
     cat = None
     for p in hd.products:
-        if p.name=='H1':
+        if p.name=='H1' or p.name=='H1 Neo':
             cat = p.category
             model = p.model
     client = RoborockMqttClientA01(ud, DeviceData(device, model), cat)
